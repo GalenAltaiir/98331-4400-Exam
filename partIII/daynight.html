@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<style>
+ @keyframes skyGradient {
+   0%{background-color: #B9F8FF;}
+   50%{background-color: orange;}
+   65%{background-color: navy;}
+   85%{background-color: salmon;}
+   100%{background-color: #B9F8FF;}
+   /* Made it a loop for simplicity */
+ }
+
+ 
+ #sky {			/****** Skye *******/
+  width: 500px;
+  height: 400px;
+  background: #B9F8FF;
+  position: relative;
+  margin: 0 auto;
+  animation: skyGradient linear 7s infinite;
+
+  overflow: hidden;
+}
+
+.mountains {
+  position: absolute;
+  bottom:0;
+  width: 0;
+  height: 0;
+  border-bottom: 104px solid blue;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+}
+#mountain1 {
+  transform-origin: 0% 100%;
+  transform: scale(2.2);
+  border-bottom-color: brown;
+}
+#mountain2 {
+  transform-origin: 0% 100%;
+  transform: scale(1.8) translate(60%,0);
+  border-bottom-color: brown;
+}
+#mountain3 {
+  right:0;
+  transform-origin: 100% 100%;
+  transform: scale(2.3);
+  border-bottom-color: brown;
+}
+.mountain-top {
+  position: absolute;
+  top:0;
+  width: 0;
+  height: 0;
+  border-bottom: 26px solid white;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  transform: translate(-50%, 0);
+}
+
+/* *** SUN *** */
+
+@keyframes sunMove {
+  0%{top: 100%; left: 0;}
+  15%{top: 20%; left: 250px}
+  50%{top: 100%; left: 300px}
+  70%{top: 100%; left: 00px}
+  100%{top: 100%; left: 00px}
+}
+
+#sun{
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background: yellow;
+  border-radius: 50%;
+  top: 100%;
+  animation: sunMove 7s linear infinite;
+}
+
+
+/* ***** Clouds ******** */
+#clouds {
+  position: relative;
+  width: 100%;
+}
+.cloud {
+	background: #fff;
+	border-radius: 15px;
+	height: 30px;
+	position: absolute;
+	width: 50px;
+}
+.cloud::after {
+  content: "";
+	background: white;
+	border-radius: 15px;
+	height: 30px;
+	position: absolute;
+	width: 30px;
+  left: 8px;
+  bottom: 15px;
+}
+
+@keyframes cloud1 {
+  0%{top: 50px; left: 0;}
+  25%{top: 50px; left: 25%;}
+  50%{top: 0px; left: 50%;}
+  75%{top: 0px; left: 75%;}
+  100%{top: 0px; left: 100%;}
+
+}
+
+@keyframes cloud2 {
+  0%{top: 50px; left: 0;}
+  25%{top: 75px; left: 10%;}
+  50%{top: 75px; left: -10%;}
+  75%{top: 80px; left: 25%;}
+  100%{top: 60px; left: 50%;}
+
+}
+
+#cloud1 {
+  top: 50px;
+  left: 0px;
+
+  animation: cloud1 linear 7s alternate infinite;
+}
+#cloud2 {
+  top: 50px;
+  left: 50px;
+
+  animation: cloud2 ease-in-out 7s alternate infinite;
+  animation-delay: 100ms;
+}
+
+</style>
+</head>
+
+<body>
+<div id="sky">
+  <div id="sun"></div>
+  <div id="clouds">
+    <div id="cloud1" class="cloud"></div>
+    <div id="cloud2" class="cloud"></div>
+  </div>
+  <div id="mountains">
+    <div id="mountain1" class="mountains">
+      <div class="mountain-top"></div>
+    </div>
+    <div id="mountain2" class="mountains"></div>
+    <div id="mountain3" class="mountains">
+      <div class="mountain-top"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
